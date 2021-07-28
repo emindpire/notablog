@@ -26,6 +26,6 @@ yarn.lock
 
 # Project
 *.log
-dist/
+#dist/
 typedoc/
 test/renderer/*.html
