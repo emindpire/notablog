@@ -39,7 +39,7 @@ column with id "${colId}" is used`)
    * - `title` is required by Notion.
    */
   const requiredCols =
-    ['tags', 'publish', 'inMenu', 'inList', 'template', 'url', 'description', 'date']
+    ['tags', 'publish', 'inMenu', 'inList', 'template', 'url', 'description', 'date', 'canonical']
   for (const colName of requiredCols) {
     if (typeof pageCollection.schema[mapColNameToId[colName]] === 'undefined') {
       throw new Error(`Required column "${colName}" is missing in table.`)
@@ -78,6 +78,7 @@ column with id "${colId}" is used`)
         inList: getCheckbox(row, mapColNameToId['inList']),
         template: getSingleSelect(row, mapColNameToId['template']),
         url: getRealUrl(row, mapColNameToId['url']),
+        canonical: getTextPlain(row, mapColNameToId['canonical']),
         description: getTextRaw(row, mapColNameToId['description']),
         descriptionPlain: getTextPlain(row, mapColNameToId['description']),
         descriptionHTML: getTextHTML(row, mapColNameToId['description']),
